@@ -1,0 +1,13 @@
+.main-section {
+  height: calc(100% - 69px);
+  gap: 0 60px;
+  display: grid;
+  grid-template-rows: 1fr 100px;
+  max-width: 1300px;
+  justify-items: center;
+  margin: 0 auto;
+
+  & > div {
+    grid-row: 1 / 3;
+  }
+}

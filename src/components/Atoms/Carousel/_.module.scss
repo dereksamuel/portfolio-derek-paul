@@ -1,0 +1,71 @@
+$item-width: 100%; // Now we can use percentages!
+$item-separation: 0px; // This now is set with Js
+$viewer-distance: 1500px;
+
+.carousel {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+
+	perspective: $viewer-distance;
+	overflow: hidden;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  // background-color: black;
+
+	> * {
+		flex: 0 0 auto;
+	}
+	
+	nav {
+		display: flex;
+		justify-content: center;
+		margin: 20px 0 0;
+
+		[data-testid="button"] {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    [data-testid="button"]:nth-child(2) {
+      left: auto;
+      right: 15px;
+    }
+	}
+  
+  &-card {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: bottom;
+  }
+}
+
+.carousel-content {
+  margin: 0;
+  width: $item-width;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  position: relative;
+  
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 15px;
+    height: 450px;
+    margin: 0 $item-separation / 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    &:first-of-type {
+      position: relative;
+    }
+  }
+}
