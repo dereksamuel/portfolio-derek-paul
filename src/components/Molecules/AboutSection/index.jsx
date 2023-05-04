@@ -12,7 +12,7 @@ function AboutSection () {
   const { value, setValue } = useContext(StoreContext)
   const descs = [
     {
-      subtitle: 'A little description about me',
+      subtitle: 'A little description about me, Derek',
       desc: "Greetings! I'm just a man with the desire to never stop learning, that way of thinking has saved me many times in my work and in my personal life, especially in the role of frontend developer because currently I face problems with no apparent solution."
     },
     {
@@ -68,7 +68,7 @@ function AboutSection () {
     return <div key={index}>
       <h3 className='text-2xl subtitle pb-2 flex justify-between items-center'>
         <strong>{subtitle}</strong>
-        {(subtitle === 'A little description about me' && value.mode3dLoading && !value.modelLoading) && <Button isSmall isActive={value.about_me.play_audio} onClick={onTogglePlay}>
+        {(subtitle === 'A little description about me, Derek' && value.mode3dLoading && !value.modelLoading) && <Button isSmall isActive={value.about_me.play_audio} onClick={onTogglePlay}>
           {value.about_me.play_audio ? <IoMdPause /> : <IoMdPlay /> }
         </Button>}
         {/* FIXME: Fix this tomorrow */}

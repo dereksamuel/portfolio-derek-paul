@@ -29,3 +29,14 @@
     }
   }
 }
+
+@media screen and (max-width: 909px) {
+  .hability {
+    .container-bars {
+      &__item,
+      &__item--active {
+        width: 9vw;
+      }
+    }
+  }
+}

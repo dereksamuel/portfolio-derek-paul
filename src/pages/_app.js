@@ -29,7 +29,7 @@ function App ({ Component, pageProps }) {
     <GeneralBorder>
       <Menu />
       <SwitchTransition>
-        <CSSTransition key={router.pathname} in={router.pathname} timeout={200} classNames="my-node" unmountOnExit>
+        <CSSTransition key={router.pathname} in={!!router.pathname} timeout={200} classNames="my-node" unmountOnExit>
           <Component {...pageProps} />
         </CSSTransition>
       </SwitchTransition>

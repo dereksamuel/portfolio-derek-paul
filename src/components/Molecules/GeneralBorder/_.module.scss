@@ -125,3 +125,13 @@
     transform: scaleY(1);
   }
 }
+
+@media screen and (max-width: 909px) {
+  .metrics-container {
+    display: none;
+  }
+
+  .analytics-container {
+    display: none;
+  }
+}
