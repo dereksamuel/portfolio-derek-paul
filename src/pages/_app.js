@@ -16,6 +16,8 @@ import useLoadHoudini from '@/hooks/useLoadHoudini'
 function App ({ Component, pageProps }) {
   const [value, setValue] = useState({
     loading: false,
+    mode3dLoading: false,
+    modelLoading: false,
     about_me: aboutMe,
     projects
   })

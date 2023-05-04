@@ -68,7 +68,7 @@ function AboutSection () {
     return <div key={index}>
       <h3 className='text-2xl subtitle pb-2 flex justify-between items-center'>
         <strong>{subtitle}</strong>
-        {subtitle === 'A little description about me' && <Button isSmall isActive={value.about_me.play_audio} onClick={onTogglePlay}>
+        {(subtitle === 'A little description about me' && value.mode3dLoading && !value.modelLoading) && <Button isSmall isActive={value.about_me.play_audio} onClick={onTogglePlay}>
           {value.about_me.play_audio ? <IoMdPause /> : <IoMdPlay /> }
         </Button>}
         {/* FIXME: Fix this tomorrow */}

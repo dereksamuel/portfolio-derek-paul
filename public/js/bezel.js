@@ -38,6 +38,7 @@ class Bezel {
     ctx.lineTo(inset, height - bottomLeftRadius)
     ctx.lineTo(inset, topLeftRadius)
     ctx.closePath()
+
     // if (properties.get('--bezel-filled')[0].trim() === 'true') {
     //   ctx.fillStyle = properties.get('--bezel-color')
     // }

@@ -9,6 +9,7 @@ function Button ({
   theme,
   className,
   isActive,
+  withoutShadow,
   ...anotherprops
 }) {
   const themes = {
@@ -22,12 +23,14 @@ function Button ({
   const buttonSize = isSmall ? 'text-base font-medium p-3 px-4' : 'text-lg font-medium p-3 px-5'
 
   return <div className={`${styles['button-container' + (isActive ? '--active' : '')]}`} onClick={onClick} data-testid="button">
-    <button
+    {!withoutShadow
+      ? <button
       className={`${styles[`button${isSmall ? '--small' : ''}`]} ${buttonSize} ${className}`}
       {...anotherprops}
       style={{ '--bezel-color': color }}>
         <span>{ children || 'No hay contenido en el botón' }</span>
     </button>
+      : null}
     <div
       className={`${styles['button--border']} ${buttonSize}`}
       style={{ '--bezel-color': color }}>{ children }
@@ -40,7 +43,8 @@ Button.defaultProps = {
   theme: 'primary',
   isActive: false,
   className: '',
-  isSmall: false
+  isSmall: false,
+  withoutShadow: false
 }
 
 Button.propTypes = {
@@ -50,7 +54,8 @@ Button.propTypes = {
   isActive: PropTypes.bool,
   anotherprops: PropTypes.object,
   className: PropTypes.string,
-  isSmall: PropTypes.bool
+  isSmall: PropTypes.bool,
+  withoutShadow: PropTypes.bool
 }
 
 export default Button

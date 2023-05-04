@@ -9,5 +9,34 @@
 
   & > div {
     grid-row: 1 / 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .derek-pic {
+    max-width: 350px;
+    position: relative;
+    z-index: 3;
+    left: -15px;
+    top: -15px;
+  }
+
+  & > div figure {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  & > div figure::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 350px;
+    height: 350px;
+    background-color: black;
   }
 }

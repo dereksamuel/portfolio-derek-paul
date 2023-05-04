@@ -4,6 +4,8 @@
 .button-container--active {
   position: relative;
   width: fit-content;
+  display: flex;
+  align-items: center;
 
   &:hover .button--border {
     cursor: pointer;
@@ -21,6 +23,9 @@
   color: var(--bezel-color);
   filter: contrast(1.3);
   transition: --bezel-color 1s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .button-container--active {

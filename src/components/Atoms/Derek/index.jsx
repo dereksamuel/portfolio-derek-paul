@@ -19,8 +19,10 @@ function Derek (props) {
   }, [])
 
   useEffect(() => {
-    actions.ArmatureAction[value.about_me.play_audio ? 'play' : 'stop']?.()
-  }, [value.about_me.play_audio])
+    if (!value.modelLoading) {
+      actions.ArmatureAction[value.about_me.play_audio ? 'play' : 'stop']?.()
+    }
+  }, [value.about_me.play_audio, value.modelLoading])
 
   return (
     <group ref={group} {...props} dispose={null} position={[0, 0, 0]}>
