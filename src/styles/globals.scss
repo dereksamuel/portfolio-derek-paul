@@ -42,6 +42,21 @@ html, body, body > div {
   height: 100%;
 }
 
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
