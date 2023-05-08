@@ -51,6 +51,10 @@ $viewer-distance: 1500px;
   transform-style: preserve-3d;
   transition: transform 0.8s;
   position: relative;
+
+  &--mobile {
+    display: none;
+  }
   
   &__item {
     display: flex;
@@ -63,9 +67,58 @@ $viewer-distance: 1500px;
     position: absolute;
     left: 0;
     top: 0;
+    opacity: 0;
+    transition: 1.2s all;
+    animation: fadeIn 1.2s ease-in-out forwards;
 
     &:first-of-type {
       position: relative;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 909px) {
+  .carousel {
+    nav {
+      display: none;
+    }
+  }
+
+  .carousel-content {
+    display: none;
+
+    &__item--mobile {
+      transform: scale(0.85);
+      opacity: 0.5;
+      scroll-snap-align: center;
+      scroll-behavior: smooth;
+      transition: 0.25s all;
+      min-height: 300px;
+      transition-delay: 0.5s;
+
+      img {
+        height: 300px;
+        object-fit: cover;
+      }
+    }
+
+    &__item--mobile:first-child {
+      margin-top: 0;
+    }
+
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 100px;
+      scroll-snap-type: y mandatory;
+      overflow-y: auto;
+      height: calc(100vh - 139px);
     }
   }
 }

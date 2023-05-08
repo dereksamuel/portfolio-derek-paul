@@ -12,6 +12,28 @@ import { IoMdArrowDropleft, IoMdArrowDropright } from 'react-icons/io'
 
 function Carousel () {
   let currChildEl = 0
+  const projects = [
+    {
+      href: 'https://dereksamuel.github.io/HOLDING/',
+      src: comicCssSrc,
+      name: 'COMIC in web 100% with CSS'
+    },
+    {
+      href: 'https://github.com/dereksamuel/amaris_test_consulting',
+      src: landingSrc,
+      name: 'Landing page with auth and DB'
+    },
+    {
+      href: 'https://404-error-dk.netlify.app/',
+      src: errorSrc,
+      name: 'Error 404 in 3D'
+    },
+    {
+      href: 'https://github.com/dereksamuel/comic-web',
+      src: comicSrc,
+      name: 'Rank for comics'
+    }
+  ]
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -31,7 +53,6 @@ function Carousel () {
 
       function setupCarousel (n, s) {
         const apothem = s / (2 * Math.tan(Math.PI / n))
-        console.log(n)
         carouselContent.style.transformOrigin = `50% 50% ${-apothem}px`
 
         // eslint-disable-next-line no-var
@@ -51,9 +72,38 @@ function Carousel () {
           }
         }
       }
+
+      const isMobile = true
+
+      if (isMobile) {
+        onStartObservable()
+      }
+
       clearTimeout(timeout)
-    }, 100)
+    }, 300)
   }, [])
+
+  function onStartObservable () {
+    const allItems = document.querySelectorAll('#carousel-content__item--mobile')
+    const classText = 'carousel-content__item--mobile--active'
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(classText)
+        } else {
+          entry.target.classList.remove(classText)
+        }
+      })
+    }, {
+      rootMargin: '0px',
+      threshold: 1.0
+    })
+
+    allItems.forEach((item) => {
+      observer.observe(item)
+    })
+  }
 
   function onPrevOrNext (e, id) {
     e.stopPropagation()
@@ -70,32 +120,26 @@ function Carousel () {
   }
 
   return (
-    <div className={`${styles.carousel} px-8 py-5`} id='carousel' data-gap="150">
+    <div className={`${styles.carousel} px-1 md:px-8 py-5`} id='carousel' data-gap="150">
       <div className={styles['carousel-content']} id='carousel-content'>
-        <div className={styles['carousel-content__item']}>
-          <a href="https://dereksamuel.github.io/HOLDING/" target='__blank'>
-            <Image src={comicCssSrc} className={styles['carousel-card']} />
-          </a>
-          <p className='pt-3'>COMIC in web 100% with CSS</p>
-        </div>
-        <div className={styles['carousel-content__item']}>
-          <a href="https://github.com/dereksamuel/amaris_test_consulting" target='__blank'>
-            <Image src={landingSrc} className={styles['carousel-card']} />
-          </a>
-          <p className='pt-3'>Landing page with auth and DB</p>
-        </div>
-        <div className={styles['carousel-content__item']}>
-          <a href="https://404-error-dk.netlify.app/" target='__blank'>
-            <Image src={errorSrc} className={styles['carousel-card']} />
-          </a>
-          <p className='pt-3'>Error 404 in 3D</p>
-        </div>
-        <div className={styles['carousel-content__item']}>
-          <a href="https://github.com/dereksamuel/comic-web" target='__blank'>
-            <Image src={comicSrc} className={styles['carousel-card']} />
-          </a>
-          <p className='pt-3'>Rank for comics</p>
-        </div>
+        {projects.map((project, index) => (
+          <div className={styles['carousel-content__item']} key={index}>
+            <a href={project.href} target='__blank'>
+              <Image src={project.src} alt={project.name} className={styles['carousel-card']} />
+            </a>
+            <p className='pt-3'>{project.name}</p>
+          </div>
+        ))}
+      </div>
+      <div className={styles['carousel-content--mobile']}>
+        {projects.map((project, index) => (
+          <div id='carousel-content__item--mobile' className={styles['carousel-content__item--mobile']} key={index}>
+            <a href={project.href} target='__blank'>
+              <Image src={project.src} alt={project.name} className={styles['carousel-card--mobile']} />
+            </a>
+            <p className='pt-3'>{project.name}</p>
+          </div>
+        ))}
       </div>
       <nav>
         <Button onClick={(e) => onPrevOrNext(e, 'prev')}>

@@ -134,6 +134,12 @@ hr {
   }
 }
 
+div.carousel-content__item--mobile--active {
+  opacity: 1;
+  margin: 0;
+  transform: scale(0.95, 1);
+}
+
 @keyframes onRotate {
   0% {
     transform: rotate(0deg);
@@ -166,5 +172,8 @@ hr {
   }
   .cursor {
     display: none;
+  }
+  p {
+    font-size: 16px;
   }
 }

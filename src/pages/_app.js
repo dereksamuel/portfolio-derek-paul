@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import Cursor from '@atoms/Cursor'
 import GeneralBorder from '@molecules/GeneralBorder'
 import Menu from '@molecules/Menu'
-import Loading from '@atoms/Loading'
 
 import { StoreContext } from '@/context/store'
 import aboutMe from '../context/modules/about_me.json'

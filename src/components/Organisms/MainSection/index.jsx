@@ -33,17 +33,19 @@ function MainSection () {
             )
           : <figure><Image src={derekPic} alt='derekPic' className={`${styles['derek-pic']} mb-8`} /></figure>}
         {(!value.mode3dLoading || value.modelLoading) && (
-          <Button
-            theme='secondary'
-            onClick={onLoadModel}
-            disabled={value.modelLoading}
-            withoutShadow={value.modelLoading}
-          >{value.modelLoading
-            ? <>
-            <Loader />
-            <span>Loading</span>
-          </>
-            : 'Load my 3D model'}</Button>
+          <div className={styles[value.modelLoading ? 'btn-loading' : '']}>
+            <Button
+              theme='secondary'
+              onClick={onLoadModel}
+              disabled={value.modelLoading}
+              withoutShadow={value.modelLoading}
+            >{value.modelLoading
+              ? <>
+              <Loader />
+              <span>Loading</span>
+            </>
+              : 'Load my 3D model'}</Button>
+          </div>
         )}
       </div>
       <AboutSection />

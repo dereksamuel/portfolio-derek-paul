@@ -30,10 +30,10 @@ function AboutSection () {
     {
       subtitle: 'Social media & Contact',
       html: <div className={`${styles['social-media']} flex p-5 text-center`}>
-        <a className='text-sm' href='https://github.com/dereksamuel' target="_blank" rel="noreferrer"><IoLogoGithub size={30} /> Github</a>
-        <a className='text-sm' href='https://www.linkedin.com/in/derek-samuel-pa%C3%BAl-pe%C3%B1a-55a7771b7/' target='_blank' rel="noreferrer"><IoLogoLinkedin size={30} /> Linkedin</a>
-        <span className='text-sm'><IoMdCall size={30} /> +57 315 449 454 7</span>
-        <span className='text-sm'><IoMdMail size={30} /> 11dereksamuel@gmail.com</span>
+        <a className='text-xs md:text-sm' href='https://github.com/dereksamuel' target="_blank" rel="noreferrer"><IoLogoGithub size={30} /> Github</a>
+        <a className='text-xs md:text-sm' href='https://www.linkedin.com/in/derek-samuel-pa%C3%BAl-pe%C3%B1a-55a7771b7/' target='_blank' rel="noreferrer"><IoLogoLinkedin size={30} /> Linkedin</a>
+        <span className='text-xs md:text-sm'><IoMdCall size={30} /> +57 315 449 454 7</span>
+        <span className='text-xs md:text-sm'><IoMdMail size={30} /> 11dereksamuel@gmail.com</span>
       </div>
     }
   ]
@@ -66,7 +66,7 @@ function AboutSection () {
 
   const generateTemplate = (subtitle, desc, html, index) => {
     return <div key={index}>
-      <h3 className='text-2xl subtitle pb-2 flex justify-between items-center'>
+      <h3 className='text-lg md:text-2xl subtitle pb-2 flex justify-between items-center'>
         <strong>{subtitle}</strong>
         {(subtitle === 'A little description about me, Derek' && value.mode3dLoading && !value.modelLoading) && <Button isSmall isActive={value.about_me.play_audio} onClick={onTogglePlay}>
           {value.about_me.play_audio ? <IoMdPause /> : <IoMdPlay /> }
@@ -75,7 +75,7 @@ function AboutSection () {
         {subtitle === 'My habilities' && <Button isSmall theme='secondary' onClick={onDownload}>Download Proof</Button>}
       </h3>
       <hr />
-      {desc ? <p className='pt-2 pb-5'>{desc}</p> : null}
+      {desc ? <p className='pt-2 pb-5 text-sm md:text-base'>{desc}</p> : null}
       {html || null}
     </div>
   }

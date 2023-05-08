@@ -20,7 +20,7 @@ function Button ({
     danger: '#e34f4f'
   }
   const color = themes[theme]
-  const buttonSize = isSmall ? 'text-base font-medium p-3 px-4' : 'text-lg font-medium p-3 px-5'
+  const buttonSize = isSmall ? 'text-sm md:text-base font-medium p-3 px-4' : 'text-base md:text-lg font-medium p-3 px-5'
 
   return <div className={`${styles['button-container' + (isActive ? '--active' : '')]}`} onClick={onClick} data-testid="button">
     {!withoutShadow
