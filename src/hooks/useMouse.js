@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export default function useMouse ($cursor) {
+export default function useMouse($cursor) {
   const onMouseMovement = (event) => {
     if ($cursor.current) {
       $cursor.current.setAttribute('style', `top: ${+event.pageY}px; left: ${+event.pageX}px`)

@@ -14,32 +14,34 @@ import useLoadHoudini from '@/hooks/useLoadHoudini'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import { useRouter } from 'next/router'
 
-function App ({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   const [value, setValue] = useState({
     mode3dLoading: false,
     modelLoading: false,
     about_me: aboutMe,
-    projects
+    projects,
   })
   const router = useRouter()
   useLoadHoudini()
 
-  return <StoreContext.Provider value={{ value, setValue }}>
-    <GeneralBorder>
-      <Menu />
-      <SwitchTransition>
-        <CSSTransition key={router.pathname} in={!!router.pathname} timeout={200} classNames="my-node" unmountOnExit>
-          <Component {...pageProps} />
-        </CSSTransition>
-      </SwitchTransition>
-      <Cursor />
-    </GeneralBorder>
-  </StoreContext.Provider>
+  return (
+    <StoreContext.Provider value={{ value, setValue }}>
+      <GeneralBorder>
+        <Menu />
+        <SwitchTransition>
+          <CSSTransition key={router.pathname} in={!!router.pathname} timeout={200} classNames="my-node" unmountOnExit>
+            <Component {...pageProps} />
+          </CSSTransition>
+        </SwitchTransition>
+        <Cursor />
+      </GeneralBorder>
+    </StoreContext.Provider>
+  )
 }
 
 App.propTypes = {
   Component: PropTypes.func.isRequired,
-  pageProps: PropTypes.object.isRequired
+  pageProps: PropTypes.object.isRequired,
 }
 
 export default App

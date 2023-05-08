@@ -8,7 +8,7 @@ import React, { useContext, useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { StoreContext } from '@/context/store'
 
-function Derek (props) {
+function Derek(props) {
   const group = useRef(null)
   const { nodes, materials, animations } = useGLTF('/models/derek.glb')
   const { actions, mixer } = useAnimations(animations, group)

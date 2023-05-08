@@ -5,8 +5,10 @@
         "node": true
     },
     "extends": [
+        "eslint:recommended",
+        "plugin:jsx-a11y/recommended",
         "plugin:react/recommended",
-        "standard"
+        "plugin:prettier/recommended"
     ],
     "overrides": [
     ],
