@@ -35,7 +35,18 @@
     .container-bars {
       &__item,
       &__item--active {
-        width: 9vw;
+        width: 7vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 628px) {
+  .hability {
+    .container-bars {
+      &__item,
+      &__item--active {
+        width: 3.5vw;
       }
     }
   }

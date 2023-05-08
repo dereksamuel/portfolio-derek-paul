@@ -1,30 +1,23 @@
 class Bezel {
-  static get inputProperties () {
+  static get inputProperties() {
     return ['--bezel-color', '--bezel-width', '--bezel-radius', '--bezel-filled', '--bezel-filled-bg', '--bezel-color-bg']
   }
 
-  static get inputArguments () {
+  static get inputArguments() {
     return ['*']
   }
 
-  static get contextOptions () {
+  static get contextOptions() {}
 
-  }
-
-  parseValue (val) {
+  parseValue(val) {
     return val.toString().replace(' ', '').replace(/px|%/g, '').split(' ')
   }
 
-  paint (ctx, geom, properties, args) {
+  paint(ctx, geom, properties, args) {
     ctx.lineWidth = properties.get('--bezel-width')
     ctx.strokeStyle = properties.get('--bezel-color')
     const inset = ctx.lineWidth / 2
-    const [
-      topLeftRadius,
-      topRightRadius,
-      bottomRightRadius,
-      bottomLeftRadius
-    ] = this.parseValue(properties.get('--bezel-radius'))
+    const [topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius] = this.parseValue(properties.get('--bezel-radius'))
 
     const width = geom.width
     const height = geom.height

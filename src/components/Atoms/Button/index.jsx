@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './_.module.scss'
 
 function Button({ children, isSmall, onClick, theme, className, isActive, withoutShadow, ...anotherprops }) {
   const themes = {
@@ -15,13 +14,14 @@ function Button({ children, isSmall, onClick, theme, className, isActive, withou
   const buttonSize = isSmall ? 'text-sm md:text-base font-medium p-3 px-4' : 'text-base md:text-lg font-medium p-3 px-5'
 
   return (
-    <div className={`${styles['button-container' + (isActive ? '--active' : '')]}`} onKeyDown={() => {}} onClick={onClick} data-testid="button">
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+    <div className={`${'button-container' + (isActive ? '--active' : '')}`} onClick={onClick} data-testid="button">
       {!withoutShadow ? (
-        <button className={`${styles[`button${isSmall ? '--small' : ''}`]} ${buttonSize} ${className}`} {...anotherprops} style={{ '--bezel-color': color }}>
+        <button className={`${`button${isSmall ? '--small' : ''}`} ${buttonSize} ${className}`} {...anotherprops} style={{ '--bezel-color': color }}>
           <span>{children || 'No hay contenido en el botón'}</span>
         </button>
       ) : null}
-      <div className={`${styles['button--border']} ${buttonSize}`} style={{ '--bezel-color': color }}>
+      <div className={`${'button--border'} ${buttonSize}`} style={{ '--bezel-color': color }}>
         {children}
       </div>
     </div>

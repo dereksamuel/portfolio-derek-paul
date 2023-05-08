@@ -6,14 +6,14 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'vuejs.org'
+        hostname: 'vuejs.org',
       },
       {
         protocol: 'https',
-        hostname: 'upload.wikimedia.org'
-      }
-    ]
-  }
+        hostname: 'upload.wikimedia.org',
+      },
+    ],
+  },
 }
 
 module.exports = nextConfig
